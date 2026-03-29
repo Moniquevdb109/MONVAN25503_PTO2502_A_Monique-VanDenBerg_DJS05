@@ -32,7 +32,7 @@ export default function PodcastGrid({ genres, onShowClick }) {
     <>
       <div className={styles.grid}>
         {podcasts.map((podcast) => (
-          <PodcastCard key={podcast.id} podcast={podcast} genres={genres} onClick={onShowClick} />
+          <PodcastCard key={podcast.id} podcast={podcast} genres={genres} onClick={() => onShowClick(podcast.id)} />
         ))}
       </div>
     </>
