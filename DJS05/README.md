@@ -1,16 +1,39 @@
-# React + Vite
+# 🎙️ Podcast App — DJS05
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React podcast browsing app with dynamic routing, show detail pages, and season navigation.
 
-Currently, two official plugins are available:
+## Getting Started
+```bash
+npm install
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Then open `http://localhost:5173` in your browser.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse all podcast shows with search, genre filter, and sort options
+- Paginated results that adapt to screen size
+- Click any show to view full details, seasons, and episodes
+- Season switcher dropdown with episode list per season
+- Filter and search state is preserved when navigating back from a detail page
+- Loading and error states handled throughout
 
-## Expanding the ESLint configuration
+## Project Structure
+```
+src/
+├── api/          # fetchData.js — all API calls
+├── components/
+│   ├── Filters/  # SearchBar, GenreFilter, SortSelect
+│   ├── Podcasts/ # PodcastCard, PodcastGrid, PodcastDetail
+│   └── UI/       # Header, Loading, Error, Pagination, GenreTags
+├── context/      # PodcastContext — global state
+├── data/         # Static genre ID → title mapping
+├── pages/        # Home, ShowDetail
+├── styles/       # All CSS modules
+└── utils/        # formatDate
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API
+
+Data sourced from `https://podcast-api.netlify.app`
