@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { PodcastContext } from "../../context/PodcastContext";
-import styles from "./Pagination.module.css";
+import { usePodcast } from "../../context/PodcastContext";
+import styles from "../../styles/Pagination.module.css";
 
 /**
  * Numeric pagination bar.
  */
 export default function Pagination() {
-  const { page, setPage, totalPages } = useContext(PodcastContext);
+  const { page, setPage, totalPages } = usePodcast();
 
   if (totalPages <= 1) return null;
 

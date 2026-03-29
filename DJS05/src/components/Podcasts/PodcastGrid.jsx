@@ -1,7 +1,7 @@
+import { usePodcast } from "../../context/PodcastContext";
 import PodcastCard from "./PodcastCard";
-import { PodcastContext } from "../../context/PodcastContext";
-import styles from "./PodcastGrid.module.css";
-import { useContext } from "react";
+import styles from "../../styles/PodcastGrid.module.css";
+
 
 /**
  * PodcastGrid Component
@@ -18,8 +18,9 @@ import { useContext } from "react";
  *
  * @returns {JSX.Element} A grid of <PodcastCard> components or a message if no results are found
  */
-export default function PodcastGrid({ genres }) {
-  const { podcasts } = useContext(PodcastContext);
+export default function PodcastGrid({ genres, onShowClick }) {
+  const { podcasts } = usePodcast();
+
   if (!podcasts.length) {
     return (
       <p className={styles.noResults}>
@@ -31,7 +32,7 @@ export default function PodcastGrid({ genres }) {
     <>
       <div className={styles.grid}>
         {podcasts.map((podcast) => (
-          <PodcastCard key={podcast.id} podcast={podcast} genres={genres} />
+          <PodcastCard key={podcast.id} podcast={podcast} genres={genres} onClick={onShowClick} />
         ))}
       </div>
     </>

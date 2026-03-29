@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { PodcastContext } from "../../context/PodcastContext";
-import styles from "./GenreFilter.module.css";
+import { usePodcast } from "../../context/PodcastContext";
+import styles from "../../styles/GenreFilter.module.css";
+
 
 /**
  * @param {{genres: {id:number,name:string}[]}} props – list of genres from data.
  */
 export default function GenreFilter({ genres }) {
-  const { genre, setGenre } = useContext(PodcastContext);
+  const { genre, setGenre } = usePodcast();
 
   return (
     <select
